@@ -44,7 +44,7 @@ setAlert(null);
     <>
       <HashRouter>
         <Navbar
-          title="TextUtils"
+          title="TextAnalyzer"
           aboutText="AboutUs"
           mode={mode}
           toggleMode={toggleMode}
