@@ -129,8 +129,8 @@ export default function About(props) {
         <div className="accordion-item">
           <h2 className="accordion-header">
             <button
-              className="accordion-button collapsed"
-              type="button"
+              className="accordion-button collapsed fw-bold"
+              type="button" 
               data-bs-toggle="collapse"
               data-bs-target="#collapseFour"
               aria-expanded="false"
@@ -138,6 +138,7 @@ export default function About(props) {
               style={myStyle}
             >
               <strong>About the Developer</strong>
+              
             </button>
           </h2>
           <div

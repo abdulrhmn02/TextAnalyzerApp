@@ -16,7 +16,6 @@ export default function TextForm(props) {
     console.log("lowercase was clicked");
     let newText2 = text.toLowerCase();
     setText(newText2);
-    props.showAlert("converted to lowercase", "success");
   };
 
   const handleCapitalizeClick = () => {
@@ -61,7 +60,7 @@ export default function TextForm(props) {
     <>
       <div
         className="container"
-        style={{ color: props.mode === "dark" ? "white" : "black" }}
+        style={{ color: props.mode === "dark" ? "white" : "white" }}
       >
         <div className="mb-3">
           <h2>{props.heading}</h2>
@@ -76,16 +75,22 @@ export default function TextForm(props) {
             }}
             value={text}
           ></textarea>
-          <button className="btn btn-primary my-3 mx-4" onClick={handleUpClick}>
+          <button
+            disabled={text.length === 0}
+            className="btn btn-primary my-3 mx-4"
+            onClick={handleUpClick}
+          >
             Convert To UPPERCASE
           </button>
           <button
+            disabled={text.length === 0}
             className="btn btn-primary my-3 mx-4"
             onClick={handleLowClick}
           >
             Convert To lowercase
           </button>
           <button
+            disabled={text.length === 0}
             className="btn btn-primary my-3 mx-4"
             onClick={handleCapitalizeClick}
           >
@@ -93,6 +98,7 @@ export default function TextForm(props) {
           </button>
 
           <button
+            disabled={text.length === 0}
             className="btn btn-primary my-3 mx-4"
             onClick={handleCopyClick}
           >
@@ -100,12 +106,14 @@ export default function TextForm(props) {
           </button>
 
           <button
+            disabled={text.length === 0}
             className="btn btn-primary my-3 mx-4"
             onClick={handleSpacesClick}
           >
             Remove Extra Spaces
           </button>
           <button
+            disabled={text.length === 0}
             className="btn btn-primary my-3 mx-4"
             onClick={handleCLearCLick}
           >
@@ -122,7 +130,7 @@ export default function TextForm(props) {
           Number of words:{" "}
           {text.split(/\s+/).filter((word) => word.length > 0).length}
         </p>
-        <p>Number of characters: {text.length}</p>
+        <p>Number of characters: {text.split(" ").filter((element)=>{return element.length!==0})}</p>
         <p>
           Number of sentences:{" "}
           {
