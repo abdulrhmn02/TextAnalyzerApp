@@ -82,6 +82,7 @@ export default function TextForm(props) {
           >
             Convert To UPPERCASE
           </button>
+          
           <button
             disabled={text.length === 0}
             className="btn btn-primary my-3 mx-4"
@@ -127,12 +128,12 @@ export default function TextForm(props) {
       >
         <h2>Your Text Summary</h2>
         <p>
-          Number of words:{" "}
+          Number of words:
           {text.split(/\s+/).filter((word) => word.length > 0).length}
         </p>
-        <p>Number of characters: {text.split(" ").filter((element)=>{return element.length!==0})}</p>
+        <p>Number of characters: {text.replace(/\s+/g, '').length}</p>
         <p>
-          Number of sentences:{" "}
+          Number of sentences:
           {
             text.split(/[.!?]/).filter((sentence) => sentence.trim().length > 0)
               .length
