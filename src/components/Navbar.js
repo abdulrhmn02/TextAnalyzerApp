@@ -9,7 +9,7 @@ export default function Navbar(props) {
       className={`navbar navbar-expand-lg navbar-${props.mode} bg-${props.mode}`}
     >
       <div className="container-fluid">
-        <Link className="navbar-brand" to="/">
+        <Link className="navbar-brand fw-bold" to="/">
           {props.title}
         </Link>
         <button
@@ -26,12 +26,12 @@ export default function Navbar(props) {
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
             <li className="nav-item">
-              <Link className="nav-link" aria-current="page" to="/">
+              <Link className="fw-bold nav-link" aria-current="page" to="/">
                 Home
               </Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" to="/about">
+              <Link className="fw-bold nav-link" to="/about">
                 {props.aboutText}
               </Link>
             </li>
@@ -54,7 +54,7 @@ export default function Navbar(props) {
             }`}
           >
             <input
-              className="form-check-input"
+              className="fw-bold form-check-input"
               type="checkbox"
               role="switch"
               onClick={props.toggleMode}

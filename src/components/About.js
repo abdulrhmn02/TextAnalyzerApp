@@ -213,7 +213,7 @@ export default function About(props) {
                 Your feedback is valuable to me as I continue to learn and
                 improve my skills.
               </p>
-              <strong><p>Contact Me  Through email :  <a href="mailto:abdulrhmn4137@gmail.com">E-Mail Me</a></p></strong>
+              <strong><p>Contact Me  Through email   <a href="mailto:abdulrhmn4137@gmail.com">E-Mail Me</a></p></strong>
 
               <strong><p>
                 Check out the code on{" "}

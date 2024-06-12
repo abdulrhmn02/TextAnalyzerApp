@@ -62,6 +62,15 @@ export default function TextForm(props) {
     return sentence.charAt(0).toUpperCase() + sentence.slice(1);
   };
 
+  const { mode } = props;
+
+  const buttonClass = mode === "dark" ? "btn btn-light" : "btn btn-dark";
+  const buttonStyle = {
+    border: mode === "dark" ? "2px solid white" : "2px solid black",
+    color:mode === "dark" ? " 2px solid black" : " 2px solid white"
+    
+  };
+  
   const [text, setText] = useState("");
 
   return (
@@ -88,7 +97,7 @@ export default function TextForm(props) {
           ></textarea>
           <button
             disabled={text.length === 0}
-            className="btn btn-primary my-3 mx-4"
+            className={`my-3 mx-4 fw-bold ${buttonClass}`} style={buttonStyle}
             onClick={handleUpClick}
           >
             Convert To UPPERCASE
@@ -96,14 +105,14 @@ export default function TextForm(props) {
 
           <button
             disabled={text.length === 0}
-            className="btn btn-primary my-3 mx-4"
+            className={`my-3 mx-4 fw-bold ${buttonClass}`} style={buttonStyle}
             onClick={handleLowClick}
           >
             Convert To lowercase
           </button>
           <button
             disabled={text.length === 0}
-            className="btn btn-primary my-3 mx-4"
+            className={`my-3 mx-4 fw-bold ${buttonClass}`} style={buttonStyle}
             onClick={handleCapitalizeClick}
           >
             Capitalize First Letters
@@ -111,7 +120,7 @@ export default function TextForm(props) {
 
           <button
             disabled={text.length === 0}
-            className="btn btn-primary my-3 mx-4"
+            className={`my-3 mx-4 fw-bold ${buttonClass}`} style={buttonStyle}
             onClick={handleCopyClick}
           >
             Copy Text
@@ -119,14 +128,14 @@ export default function TextForm(props) {
 
           <button
             disabled={text.length === 0}
-            className="btn btn-primary my-3 mx-4"
+            className={`my-3 mx-4 fw-bold ${buttonClass}`} style={buttonStyle} 
             onClick={handleSpacesClick}
           >
             Remove Extra Spaces
           </button>
           <button
             disabled={text.length === 0}
-            className="btn btn-primary my-3 mx-4"
+            className={`my-3 mx-4 fw-bold ${buttonClass}`} style={buttonStyle}
             onClick={handleCLearCLick}
           >
             Clear Text
@@ -138,12 +147,12 @@ export default function TextForm(props) {
         style={{ color: props.mode === "dark" ? "white" : "black" }}
       >
         <h2>Your Text Summary</h2>
-        <p>
+        <p className="fw-bold">
           Number of words:
            {text.split(/\s+/).filter((word) => word.length > 0).length}
         </p>
-        <p>Number of characters:{text.replace(/\s+/g, "").length}</p>
-        <p>
+        <p className="fw-bold">Number of characters:{text.replace(/\s+/g, "").length}</p>
+        <p className="fw-bold">
           Number of sentences:
             {
              text.split(/[.!?]/).filter((sentence) => sentence.trim().length > 0)
