@@ -29,11 +29,19 @@ export default function TextForm(props) {
     setText(newText4);
   };
   const handleCopyClick = () => {
-    console.log("copy text was clicked");
-    var text = document.getElementById("myBox");
-    text.select();
-    navigator.clipboard.writeText(text.value);
+    if (window.location.protocol === "http:") {
+      alert("Copying text may not work over an unsecured connection. Redirecting to GitHub where it works.");
+      window.location.href = "https://abdulrhmn02.github.io/TextAnalyzerApp/";
+    } else {
+      // Your copy logic here
+      console.log("Text copied!");
+      navigator.clipboard.writeText(text);
+    }
   };
+    // var text = document.getElementById("myBox");
+    // text.select();
+   
+
   const handleSpacesClick = () => {
     let newText5 = text.split(/[ ]+/);
     setText(newText5.join(" "));
@@ -62,7 +70,10 @@ export default function TextForm(props) {
         className="container"
         style={{ color: props.mode === "dark" ? "white" : "white" }}
       >
-        <div className="mb-3">
+        <div
+          className="mb-3"
+          style={{ color: props.mode === "dark" ? "white" : "black" }}
+        >
           <h2>{props.heading}</h2>
           <textarea
             className="form-control"
@@ -82,7 +93,7 @@ export default function TextForm(props) {
           >
             Convert To UPPERCASE
           </button>
-          
+
           <button
             disabled={text.length === 0}
             className="btn btn-primary my-3 mx-4"
@@ -129,15 +140,15 @@ export default function TextForm(props) {
         <h2>Your Text Summary</h2>
         <p>
           Number of words:
-          {text.split(/\s+/).filter((word) => word.length > 0).length}
+           {text.split(/\s+/).filter((word) => word.length > 0).length}
         </p>
-        <p>Number of characters: {text.replace(/\s+/g, '').length}</p>
+        <p>Number of characters:{text.replace(/\s+/g, "").length}</p>
         <p>
           Number of sentences:
-          {
-            text.split(/[.!?]/).filter((sentence) => sentence.trim().length > 0)
+            {
+             text.split(/[.!?]/).filter((sentence) => sentence.trim().length > 0)
               .length
-          }
+            }
         </p>
       </div>
     </>

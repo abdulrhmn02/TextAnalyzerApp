@@ -11,3 +11,12 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+
+.light-mode-button::after {
+  filter: invert(0); /* Ensures the color is black */
+}
+
+.dark-mode-button::after {
+  filter: invert(1); /* Ensures the color is white */
+}
